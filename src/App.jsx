@@ -1,11 +1,11 @@
 import React from 'react'
-
+import Navbar from './sections/Navbar'
+import Hero from './sections/Hero'
 const App = () => {
   return (
-    <div>
-       <h1 className="text-3xl text-white` font-bold underline">
-      Hello world!
-    </h1>
+    <div className='max-2-7xl mx-auto'>
+      <Navbar/>
+      <Hero/>
     </div>
   )
 }
