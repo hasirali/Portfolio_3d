@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-3d",
+  "name": "threejscc-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,13 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^9.114.0",
-    "@react-three/fiber": "^8.17.8",
+    "@emailjs/browser": "^4.4.1",
+    "@gsap/react": "^2.1.1",
+    "@react-three/drei": "^9.115.0",
+    "@react-three/fiber": "^8.17.6",
+    "@types/three": "^0.168.0",
+    "gsap": "^3.12.5",
     "leva": "^0.9.35",
+    "maath": "^0.10.8",
+    "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-globe.gl": "^2.27.2",
     "react-responsive": "^10.0.0",
-    "three": "^0.168.0"
+    "react-router-dom": "^6.27.0",
+    "three": "^0.167.1",
+    "three-stdlib": "^2.32.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -31,7 +40,7 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
+    "tailwindcss": "^3.4.14",
     "vite": "^5.4.1"
   }
 }
