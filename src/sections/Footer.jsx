@@ -8,18 +8,28 @@ const Footer = () => {
       </div>
 
       <div className="flex gap-3">
-        <div className="social-icon">
-          <img src="/assets/github.svg" alt="github" className="w-1/2 h-1/2" />
-        </div>
-        <div className="social-icon">
-          <img src="/assets/twitter.svg" alt="twitter" className="w-1/2 h-1/2" />
-        </div>
-        <div className="social-icon">
-          <img src="/assets/instagram.svg" alt="instagram" className="w-1/2 h-1/2" />
-        </div>
-      </div>
+  <a href="https://github.com/hasirali" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <img src="/assets/github.svg" alt="GitHub" className="w-1/2 h-1/2" />
+  </a>
+  <a href="https://twitter.com/haxir_ali" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <img src="/assets/twitter.svg" alt="Twitter" className="w-1/2 h-1/2" />
+  </a>
+  <a href="https://www.linkedin.com/in/hasir-ali-b649851aa/" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <img src="/assets/linkedin.svg" alt="LinkedIn" className="w-1/2 h-1/2" />
+  </a>
+  <a href="https://www.facebook.com/profile.php?id=100095270901385" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <img src="/assets/facebook.svg" alt="Facebook" className="w-1/2 h-1/2" />
+  </a>
+  <a href="https://www.geeksforgeeks.org/user/hasira804/" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <img src="/assets/gfg.svg" alt="GeeksforGeeks" className="w-1/2 h-1/2" />
+  </a>
+  <a href="https://leetcode.com/u/hasira804/" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <img src="/assets/leetcode.svg" alt="LeetCode" className="w-1/2 h-1/2" />
+  </a>
+</div>
 
-      <p className="text-white-500">© 2024 Adrian Hajdin. All rights reserved.</p>
+
+      <p className="text-white-500">© 2024 Hasir Ali. All rights reserved.</p>
     </footer>
   );
 };
