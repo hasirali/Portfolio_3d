@@ -7,7 +7,7 @@ import Contact from './sections/Contact.jsx';
 import Clients from './sections/Clients.jsx';
 import Projects from './sections/Projects.jsx';
 import WorkExperience from './sections/Experience.jsx';
-
+// import Tech from './sections/Tech.jsx';
 const App = () => {
   return (
     <Router>
@@ -21,7 +21,9 @@ const App = () => {
           <Route path="/experience" element={<WorkExperience />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        {/* <Tech /> */}
         <Footer />
+
       </main>
     </Router>
   );
