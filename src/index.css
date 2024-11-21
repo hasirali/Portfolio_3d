@@ -195,3 +195,15 @@ body {
     transform: rotate(0deg);
   }
 }
+.animate-fade-up {
+  opacity: 0; /* Hidden initially */
+  transform: translateY(50px); /* Positioned below */
+  visibility: hidden; /* Invisible to avoid flashes */
+}
+
+.animate-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important; /* Moves to position */
+  visibility: visible !important;
+  transition: all 0.8s ease-in-out; /* Smooth animation */
+}

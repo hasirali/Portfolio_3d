@@ -27,7 +27,7 @@ const Project = () => {
         { opacity: 1 },
         "<"
       )
-      .to(quoteRef.current?.querySelector(".about-2"), { opacity: 0.9, delay: 1 });
+      .to(quoteRef.current?.querySelector(".about-2"), { opacity: 0.5, delay: 0.5 });
 
     ScrollTrigger.create({
       trigger: targetSection.current,
@@ -50,12 +50,12 @@ const Project = () => {
 
   const renderQuotes = () => (
     <div ref={quoteRef}>
-      <h1 className="font-medium text-white text-3xl sm:text-4xl md:text-6xl mt-48">
+      <h1 className="font-medium text-white text-3xl sm:text-4xl md:text-6xl sm:pl-10 mt-48">
         <span className={`about-1 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          I am a passionate UI Engineer who bridges the gap between development and design.
+        I’m a driven Full Stack Developer with a passion for turning ideas into sleek,
         </span>
         <span className={`about-2 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          I take responsibility to craft a good user experience using modern frontend architecture.
+        functional apps that are as visually stunning as they are efficient
         </span>
       </h1>
     </div>

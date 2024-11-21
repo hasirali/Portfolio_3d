@@ -84,7 +84,7 @@ const Projects = () => {
     <>
       <Quote />
       {/* Outer container to prevent layout conflicts */}
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden mb-20">
         <section
           ref={targetSectionRef}
           className="projects-section w-full py-8 bg-black mb-20 mt-20"
