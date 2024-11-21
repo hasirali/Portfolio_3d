@@ -1,79 +1,114 @@
-import { gsap, Linear } from "gsap";
-import React, { useEffect, useRef, useState } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useRef, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { PROJECTS } from '../constants/index';
+import Quote from '../components/Quote';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Project = () => {
-  const quoteRef = useRef(null);
-  const targetSection = useRef(null);
-  const [willChange, setWillChange] = useState(false);
-
-  const initAboutAnimation = (quoteRef, targetSection) => {
-    const timeline = gsap.timeline({
-      defaults: { ease: Linear.easeNone, duration: 0.5 },
-    });
-
-    timeline
-      .fromTo(
-        quoteRef.current?.querySelector(".about-1"),
-        { opacity: 0 },
-        { opacity: 1 }
-      )
-      .to(quoteRef.current?.querySelector(".about-1"), { opacity: 0.5, delay: 0.5 })
-      .fromTo(
-        quoteRef.current?.querySelector(".about-2"),
-        { opacity: 0 },
-        { opacity: 1 },
-        "<"
-      )
-      .to(quoteRef.current?.querySelector(".about-2"), { opacity: 0.9, delay: 1 });
-
-    ScrollTrigger.create({
-      trigger: targetSection.current,
-      start: "top center",
-      end: "bottom center",
-      scrub: true,
-      animation: timeline,
-      onToggle: (self) => setWillChange(self.isActive),
-    });
-  };
+const Projects = () => {
+  const projectsWrapperRef = useRef(null);
+  const targetSectionRef = useRef(null);
 
   useEffect(() => {
-    console.log("quoteRef:", quoteRef.current);
-    console.log("targetSection:", targetSection.current);
 
-    initAboutAnimation(quoteRef, targetSection);
+    document.body.style.overflowX = 'hidden';
+    const projectsWrapper = projectsWrapperRef.current;
+    const targetSection = targetSectionRef.current;
 
-    return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // ScrollTrigger for horizontal scroll
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: targetSection,
+        start: 'top top', // Starts when section is at the top of the viewport
+        end: () => `+=${projectsWrapper.scrollWidth}`, // End after the horizontal scrolling completes
+        scrub: 1, // Scrub for smooth horizontal scrolling
+        pin: true,  // Pin the section while scrolling horizontally
+         // Enable markers for debugging (you can disable after debugging)
+        // anticipatePin: 1, // Add slight delay for smoother pinning transition
+      },
+    });
+
+    // Horizontal scrolling effect for project tiles
+    tl.to(projectsWrapper, {
+      x: () => -(projectsWrapper.scrollWidth - window.innerWidth), // Scroll horizontally to show all projects
+      ease: 'none', // No easing for smooth scroll
+    });
+
+    // Cleanup ScrollTrigger on component unmount
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
-  const renderQuotes = () => (
-    <div ref={quoteRef}>
-      <h1 className="font-medium text-white text-3xl sm:text-4xl md:text-6xl">
-        <span className={`about-1 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          I am a passionate UI Engineer who bridges the gap between development and design.
-        </span>
-        <span className={`about-2 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          I take responsibility to craft a good user experience using modern frontend architecture.
-        </span>
-      </h1>
+  // Render project tiles dynamically from the PROJECTS array
+  const renderProjectTiles = useCallback(() =>
+    PROJECTS.map((project, index) => (
+      
+      <div
+      key={index}
+      className="flex flex-col w-11/12 max-w-sm bg-white rounded-lg shadow-lg p-6 m-4 sm:m-6 md:m-8 hover:shadow-xl transition-shadow duration-3600"
+    >
+      <img
+        src={project.image}
+        alt={project.name}
+        className="w-full h-48 object-cover rounded-lg"
+      />
+      <h3 className="text-xl font-semibold mt-4 text-gray-800">{project.name}</h3>
+      <p className="text-gray-600 mt-2 text-sm sm:text-base">{project.description}</p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {project.tech.map((tech, idx) => (
+          <span
+            key={idx}
+            className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 mt-4 inline-block text-sm sm:text-base hover:underline"
+      >
+        View Project
+      </a>
     </div>
-  );
+    )), []);
 
   return (
-    <section
-      className="tall:pt-20 tall:pb-16 pt-40 pb-24 w-full relative select-none section-container"
-      ref={targetSection}
-    >
-      {renderQuotes()}
-      <div>
-        
-        {/* Add your long content here */}
-       
+    <>
+    <Quote/>
+    
+
+    <section ref={targetSectionRef} className="projects-section w-full relative select-none py-8 bg-black-50 mt-20 mb-40" style={{ height: '100vh' }}>
+
+      <h2 className="text-4xl text-white text-center mb-10">My Projects</h2>
+      <div
+        ref={projectsWrapperRef}
+        className="projects-wrapper flex gap-6"
+        style={{
+          display: 'flex',
+          width: 'max-content', // Prevent wrapping and ensure enough space for horizontal scroll
+          paddingRight: '5vw', // Add padding to the right to prevent horizontal scroll bar
+        }}>
+        {renderProjectTiles()}
       </div>
     </section>
+          </>
   );
 };
 
-export default Project;
+Projects.propTypes = {
+  PROJECTS: PropTypes.arrayOf(PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    tech: PropTypes.arrayOf(PropTypes.string).isRequired,
+    url: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
+export default Projects;

@@ -115,6 +115,79 @@ const technologies = [
     icon: docker,
   },
 ];
+
+export const PROJECTS = [
+  {
+    name: "FigGen - Figma to Code converter",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRns_x_Dn8OPniik8QOWGphDJSO2jwDnbRGHw&s",
+    description: "Pixel perfect HTML/Tailwind for Figma Auto layout designs.",
+    url: "https://www.figma.com/community/plugin/1065278044402066626",
+    tech: ["typescript", "figma", "tailwind"],
+  },
+  {
+    name: "ByteBuddy - Tinder for Developers",
+    image: "https://via.placeholder.com/300x200.png?text=ByteBuddy",
+    description: "A Tinder-like app where developers can match based on their tech stack.",
+    url: "https://github.com/hasir-ali/ByteBuddy",
+    tech: ["react", "node.js", "mongodb", "express", "tailwind"],
+  },
+  {
+    name: "Foodinger - Food Discovery App",
+    image: "https://via.placeholder.com/300x200.png?text=Foodinger",
+    description: "An app to discover the best food around based on user reviews and ratings.",
+    url: "https://github.com/hasir-ali/Foodinger",
+    tech: ["react", "node.js", "mongodb", "express"],
+  },
+  {
+    name: "Weather App",
+    image: "https://via.placeholder.com/300x200.png?text=Weather+App",
+    description: "A weather forecasting app that provides real-time weather data using a public API.",
+    url: "https://github.com/hasir-ali/WeatherApp",
+    tech: ["html", "css", "javascript"],
+  },
+  {
+    name: "Taskify - Task Management App",
+    image: "https://via.placeholder.com/300x200.png?text=Taskify",
+    description: "A simple to-do list app to help users manage their tasks efficiently.",
+    url: "https://github.com/hasir-ali/Taskify",
+    tech: ["react", "node.js", "express", "mongodb"],
+  },
+  {
+    name: "Taskify - Task Management App",
+    image: "https://via.placeholder.com/300x200.png?text=Taskify",
+    description: "A simple to-do list app to help users manage their tasks efficiently.",
+    url: "https://github.com/hasir-ali/Taskify",
+    tech: ["react", "node.js", "express", "mongodb"],
+  },
+  {
+    name: "Taskify - Task Management App",
+    image: "https://via.placeholder.com/300x200.png?text=Taskify",
+    description: "A simple to-do list app to help users manage their tasks efficiently.",
+    url: "https://github.com/hasir-ali/Taskify",
+    tech: ["react", "node.js", "express", "mongodb"],
+  },
+  {
+    name: "Taskify - Task Management App",
+    image: "https://via.placeholder.com/300x200.png?text=Taskify",
+    description: "A simple to-do list app to help users manage their tasks efficiently.",
+    url: "https://github.com/hasir-ali/Taskify",
+    tech: ["react", "node.js", "express", "mongodb"],
+  },
+  {
+    name: "Taskify - Task Management App",
+    image: "https://via.placeholder.com/300x200.png?text=Taskify",
+    description: "A simple to-do list app to help users manage their tasks efficiently.",
+    url: "https://github.com/hasir-ali/Taskify",
+    tech: ["react", "node.js", "express", "mongodb"],
+  },
+  {
+    name: "Taskify - Task Management App",
+    image: "https://via.placeholder.com/300x200.png?text=Taskify",
+    description: "A simple to-do list app to help users manage their tasks efficiently.",
+    url: "https://github.com/hasir-ali/Taskify",
+    tech: ["react", "node.js", "express", "mongodb"],
+  },
+];
 export default technologies;
 export const clientReviews = [
   {

@@ -23,6 +23,7 @@ const Hero = () => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
   return (
+  <>
     <section className="min-h-screen w-full flex flex-col relative" id="home">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
@@ -31,7 +32,6 @@ const Hero = () => {
         <p className="hero_tag text-gray_gradient">Documenting my growth, skills, and passion
         through my personal Portfolio.</p>
       </div>
-
       <div className="w-full h-full absolute inset-0 mt-24">
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
@@ -62,6 +62,7 @@ const Hero = () => {
         </a>
       </div>
     </section>
+  </>
   );
 };
 
