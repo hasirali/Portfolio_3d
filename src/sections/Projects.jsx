@@ -4,6 +4,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { PROJECTS } from '../constants/index';
 import Quote from '../components/Quote';
+import Tech from './Tech.jsx';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,6 +85,7 @@ const Projects = () => {
   return (
     <>
       <Quote />
+      <Tech />
       {/* Outer container to prevent layout conflicts */}
       <div className="relative w-full overflow-hidden mb-20">
         <section
@@ -106,6 +109,8 @@ const Projects = () => {
           </div>
         </section>
       </div>
+      
+      
     </>
   );
 };

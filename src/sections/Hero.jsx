@@ -3,6 +3,8 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
 import { PerspectiveCamera } from '@react-three/drei';
+import Tech from './Tech.jsx';
+
 
 import Cube from '../components/Cube.jsx';
 import Rings from '../components/Rings.jsx';
@@ -62,6 +64,7 @@ const Hero = () => {
         </a>
       </div>
     </section>
+    <Tech />
   </>
   );
 };
