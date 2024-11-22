@@ -15,6 +15,7 @@ import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import { calculateSizes } from '../constants/index.js';
 import { HackerRoom } from '../components/HackerRoom.jsx';
+import CollaborationSection from '../components/CollaborationSection';
 
 const Hero = () => {
   // Use media queries to determine screen size
@@ -64,6 +65,7 @@ const Hero = () => {
         </a>
       </div>
     </section>
+    <CollaborationSection />
     <Tech />
   </>
   );
