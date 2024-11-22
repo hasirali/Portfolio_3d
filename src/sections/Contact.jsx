@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import gsap from 'gsap';
 import Globe from 'react-globe.gl';
-import useAlert from '../hooks/useAlert.js';
-import Alert from '../components/Alert.jsx';
+import useAlert from '../hooks/useAlert';
+import Alert from '../components/Alert';
 
 const Contact = () => {
   const formRef = useRef();
@@ -13,9 +13,8 @@ const Contact = () => {
   const [hasCopied, setHasCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('adrian@jsmastery.pro');
+    navigator.clipboard.writeText('hasira804@gmail.com');
     setHasCopied(true);
-
     setTimeout(() => {
       setHasCopied(false);
     }, 2000);
@@ -68,9 +67,10 @@ const Contact = () => {
     setLoading(true);
 
     emailjs
+   
       .send(
-        serviceID,
-        templateID,
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
         {
           from_name: form.name,
           to_name: 'Hasir Ali',
@@ -78,7 +78,7 @@ const Contact = () => {
           to_email: 'hasira804@gmail.com',
           message: form.message,
         },
-        publicKey,
+        process.env.REACT_APP_PUBLICKEY
       )
       .then(() => {
         setLoading(false);
@@ -112,8 +112,10 @@ const Contact = () => {
         // Pre-fill Gmail with the user's message
         const userMessage = `Hi Hasir, ${form.message}`;
         window.open(
-          `https://mail.google.com/mail/?view=cm&fs=1&to=hasira804@gmail.com&subject=Message from ${form.name}&body=${encodeURIComponent(userMessage)}`,
-          '_blank',
+          `https://mail.google.com/mail/?view=cm&fs=1&to=hasira804@gmail.com&subject=Message from ${form.name}&body=${encodeURIComponent(
+            userMessage
+          )}`,
+          '_blank'
         );
       });
   };
@@ -136,25 +138,27 @@ const Contact = () => {
             />
           </div>
           <div>
-            <h1 className="grid-headtext text-center text-5xl">I’m very flexible with time zone communications & locations</h1>
-            <h1 className="grid-subtext text-center">
-              I&apos;m based in Rjieka, Croatia and open to remote work worldwide.
+            <h1 className="grid-headtext text-center text-5xl">
+              I’m very flexible with time zone communications & locations
             </h1>
-            
+            <h1 className="grid-subtext text-center">
+              I&apos;m based in Rijeka, Croatia and open to remote work worldwide.
+            </h1>
           </div>
         </div>
       </div>
-      {/* <div className="xl:col-span-1 xl:row-span-2"> */}
+
       <div className="grid-container">
         <div className="space-y-2">
           <p className="grid-subtext text-center">Contact me</p>
           <div className="copy-container" onClick={handleCopy}>
             <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
-            <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">hasira804@gmail.com</p>
+            <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">
+              hasira804@gmail.com
+            </p>
           </div>
         </div>
       </div>
-      {/* </div> */}
 
       <section className="c-space my-20" id="contact">
         {alert.show && <Alert {...alert} />}

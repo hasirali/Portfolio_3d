@@ -1,11 +1,12 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Hero from './sections/Hero.jsx';
-import About from './sections/About.jsx';
+import Experience from './sections/Experience.jsx';
 import Contact from './sections/Contact.jsx';
-import Clients from './sections/Clients.jsx';
+// import Clients from './sections/Clients.jsx';
 import Projects from './sections/Projects.jsx';
-import WorkExperience from './sections/Experience.jsx';
+import Education from './sections/Education.jsx';
+
 
 const PageWrapper = ({ children }) => {
   return (
@@ -35,10 +36,10 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/about"
+          path="/experience"
           element={
             <PageWrapper>
-              <About />
+              <Experience />
             </PageWrapper>
           }
         />
@@ -50,19 +51,19 @@ const AnimatedRoutes = () => {
             </PageWrapper>
           }
         />
-        <Route
+        {/* <Route
           path="/clients"
           element={
             <PageWrapper>
               <Clients />
             </PageWrapper>
           }
-        />
+        /> */}
         <Route
-          path="/experience"
+          path="/education"
           element={
             <PageWrapper>
-              <WorkExperience />
+              <Education />
             </PageWrapper>
           }
         />

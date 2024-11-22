@@ -69,14 +69,25 @@ const Projects = () => {
               </span>
             ))}
           </div>
+          <div className='flex flex-row gap-5'>
+
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 mt-4 inline-block text-sm sm:text-base hover:underline"
-          >
+            >
             View Project
           </a>
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 mt-4 inline-block text-sm sm:text-base hover:underline"
+            >
+            Live 
+          </a>
+            </div>
         </div>
       )),
     []

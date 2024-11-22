@@ -1,69 +1,52 @@
-// educational experience section
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
+import Tech from './Tech.jsx';
+import CompanyExperience from '../components/CompanyExperience.jsx';
+const About = () => {
+  const handleCopy = () => {
+    navigator.clipboard.writeText(' adrian@jsmastery.pro');
+    setHasCopied(true);
 
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-
-import Developer from '../components/Developer.jsx';
-import CanvasLoader from '../components/Loading.jsx';
-import { workExperiences } from '../constants/index.js';
-
-const WorkExperience = () => {
-  const [animationName, setAnimationName] = useState('idle');
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 2000);
+  };
 
   return (
-    
-    <section className="c-space my-20" id="work">
-      <div className="w-full text-white-600">
-        <p className="head-text">My Work Experience</p>
+    <>
+      <section className="c-space mt-48" id="about">
+        <div className="grid xl:grid-cols-2 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-1/2">
+          <div className="col-span-1 xl:row-span-3">
+            <div className="grid-container">
+              <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
 
-        <div className="work-container">
-          <div className="work-canvas">
-            <Canvas>
-              <ambientLight intensity={7} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
-
-              <Suspense fallback={<CanvasLoader />}>
-                <Developer position-y={-3} scale={3} animationName={animationName} />
-              </Suspense>
-            </Canvas>
+              <div>
+                <p className="grid-headtext">Hi, I’m Hasir</p>
+                <p className="grid-subtext">
+                  With four years of experience, I have developed expertise in frontend and backend development,
+                  specializing in creating dynamic and responsive websites.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="work-content">
-            <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-              {workExperiences.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOver={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOut={() => setAnimationName('idle')}
-                  className="work-content_container group">
-                  <div className="flex flex-col h-full justify-start items-center py-2">
-                    <div className="work-content_logo">
-                      <img className="w-full h-full" src={item.icon} alt="" />
-                    </div>
+          <div className="col-span-1 xl:row-span-3">
+            <div className="grid-container">
+              <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
 
-                    <div className="work-content_bar" />
-                  </div>
-
-                  <div className="sm:p-5 px-2.5 py-5">
-                    <p className="font-bold text-white-800">{item.name}</p>
-                    <p className="text-sm mb-5">
-                      {item.pos} -- <span>{item.duration}</span>
-                    </p>
-                    <p className="group-hover:text-white transition-all ease-in-out duration-500">{item.title}</p>
-                  </div>
-                </div>
-              ))}
+              <div>
+                <p className="grid-headtext">Tech Stack</p>
+                <p className="grid-subtext">
+                I excel in a diverse range of languages, frameworks, and tools, enabling me to develop robust and scalable applications.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-    </section>
+      </section>
+      <CompanyExperience />
+      <Tech />
+    </>
   );
 };
 
-export default WorkExperience;
+export default About;
